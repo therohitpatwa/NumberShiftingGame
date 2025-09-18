@@ -59,6 +59,7 @@ void createMatrix(int arr[][])
             arr[i][j]=nums[index];
             nums[index]=nums[lastIndex--];
         }
+
     }
 
 }
