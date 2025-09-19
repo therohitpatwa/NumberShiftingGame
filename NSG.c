@@ -50,7 +50,6 @@ void createMatrix(int arr[][])
     srand(time(NULL));
     
 
-    int num=rand();
     for(int i=0;i<4;i++)
     {
         for(int j=0;j<4;j++)
