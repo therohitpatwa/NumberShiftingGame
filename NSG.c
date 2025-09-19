@@ -39,11 +39,12 @@ void gameRule()
 
 void createMatrix(int arr[][])
 {
-    int num[15];
+    int n=15;
+    int num[n];
     for(int i=0;i<15;i++)
      nums[i]=i+1;
 
-    lastIndex=14;
+    lastIndex=n-1;
 
     
     srand(time(NULL));
@@ -59,7 +60,7 @@ void createMatrix(int arr[][])
             arr[i][j]=nums[index];
             nums[index]=nums[lastIndex--];
         }
-
+       arr[i-1][j-1]=0;
     }
 
 }
