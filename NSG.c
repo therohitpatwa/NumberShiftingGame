@@ -3,6 +3,8 @@
 #include<stdlib.h>
 #include<time.h>
 #include<conio.h>
+#include<window.h>
+
 
 
 
@@ -127,7 +129,7 @@ void swap(int *x, int *y)
  
 
 
-int shiftUp(int arr[][4])
+int shiftDown(int arr[][4])
 {
     int i, j;
     for (i = 0; i < 4; i++)
@@ -146,7 +148,7 @@ int shiftUp(int arr[][4])
     return 1; 
 }
 
-int shiftDown(int arr[][4])
+int shiftUp(int arr[][4])
 {
     int i, j;
     for (i = 0; i < 4; i++)
@@ -175,10 +177,10 @@ int shiftRight(int arr[][4])
         if (j < 4)
             break;
     }
-    if (j == 3) 
+    if (j == 0) 
         return 0;
 
-    swap(&arr[i][j], &arr[i][j + 1]);
+    swap(&arr[i][j], &arr[i][j - 1]);
 
     return 1;
 }
@@ -195,10 +197,10 @@ int shiftLeft(int arr[][4])
             break;
     }
 
-    if (j == 0) 
+    if (j == 3) 
         return 0;
 
-    swap(&arr[i][j], &arr[i][j - 1]);
+    swap(&arr[i][j], &arr[i][j + 1]);
     return 1;
 }
 
@@ -239,55 +241,71 @@ int main()
     int moves=1000;
     gameRule();
     system("cls");
-    createMatrix(arr);
+    while(1){
+        createMatrix(arr);
     
-    while(!winner(arr))
-    {
+        while(!winner(arr))
+        {
 
-        system("cls");
-        if(!moves)
-        break;
-        printf("Player Name : %s  \n\n",name);
-        printf("Left Moves:  Moves : %d\n\n\n",moves);
-         showMatrix(arr);
-         int key= readEnteredKey();
-         switch (key)  {
-            case 101: 
- 
-            case 69:
-                printf("\a\a\a\a\a\a\n     Thanks for Playing ! \n\a");
-                printf("\nHit 'Enter' to exit the game \n");
-                key = readEnteredKey();
-                return 0;
+            system("cls");
+            if(!moves)
+            break;
+            printf("Player Name : %s  \n\n",name);
+            printf("Left Moves:  Moves : %d\n\n\n",moves);
+            showMatrix(arr);
+            int key= readEnteredKey();
+            switch (key)  {
+                case 101: 
+    
+                case 69:
+                    printf("\a\a\a\a\a\a\n     Thanks for Playing ! \n\a");
+                    printf("\nHit 'Enter' to exit the game \n");
+                    key = readEnteredKey();
+                    return 0;
 
-            case 72: // arrow up
-                if (shiftUp(arr))
-                    moves--;
-                break; 
-            case 80: // arrow down
-                if (shiftDown(arr))
-                    moves--;
-                break;
-            case 75: // arrow left
-                if (shiftLeft(arr))
-                    moves--;
-                break;
-            case 77: // arrow  right
-                if (shiftRight(arr))
-                    moves--;
-                break;
-            default:
+                case 72: // arrow up
+                    if (shiftUp(arr))
+                        moves--;
+                    break; 
+                case 80: // arrow down
+                    if (shiftDown(arr))
+                        moves--;
+                    break;
+                case 75: // arrow left
+                    if (shiftLeft(arr))
+                        moves--;
+                    break;
+                case 77: // arrow  right
+                    if (shiftRight(arr))
+                        moves--;
+                    break;
+                default:
 
-                printf("\n\n      \a\a Not Allowed \a");
-            }
+                    printf("\n\n      \a\a Not Allowed \a");
+                }
 
+        }
+            
+            if (!moves)
+                printf(RED "\n\a          YOU LOSE !          \a\a\n"RESET);
+            else
+                printf(GREEN "\n\a!!!!!!!!!!!!!Congratulations  %s for winning this game !!!!!!!!!!!!!\n\a"RESET, name);
+        
+            fflush(stdin); 
+            char check;
+            printf(GREEN "\nWant to play again ? \n"RESET);
+            printf("enter 'y' to play again:  ");
+            scanf("%c", &check);
+
+    
+            if((check!='y')&&(check!='Y'))
+            break;
+
+            moves=1000;
     }
-        
-        if (!moves)
-            printf(RED "\n\a          YOU LOSE !          \a\a\n"RESET);
-        else
-            printf(GREEN "\n\a!!!!!!!!!!!!!Congratulations  %s for winning this game !!!!!!!!!!!!!\n\a"RESET, name);
-        
+
+    return 0;
+    
 
 
 }
