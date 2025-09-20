@@ -1,6 +1,10 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<conio.h>
+
+
 
 
 #define RESET        "\033[0m"
@@ -10,6 +14,7 @@
 
 void gameRule()
 {
+    system("cls");
     printf(BRIGHT_WHITE"\t\t\t\t\t\t\t\t\tNumber Shifting Game - A Matrix Puzzle\n"RESET);
     printf(BRIGHT_WHITE"\t\t\t\t\t\t\t\t\t\tRule of this Game\n\n\n\n\n\n"RESET);
     printf(GREEN"1-You can move only 1 step at a time by using arrow key :\n"RESET);
@@ -41,7 +46,7 @@ void gameRule()
     printf(GREEN"5-You can exit the game by pressing 'E' or 'e'\n\n"RESET);
     printf(BRIGHT_WHITE"Enter any key to start.....\n"RESET);
     getch();
-
+  
 }
 
 void createMatrix(int arr[][4])
@@ -61,15 +66,38 @@ void createMatrix(int arr[][4])
     {
         for(int j=0;j<4;j++)
         {
-
-            int index= rand() % (lastIndex+1);
-            arr[i][j]=nums[index];
-            nums[index]=nums[lastIndex--];
+            if(lastIndex>=0)
+            {
+                int index= rand() % (lastIndex+1);
+                arr[i][j]=nums[index];
+                nums[index]=nums[lastIndex--];
+            }
         }
       
     }
-     arr[3][3]=0;
+    arr[3][3]=0;
 
+}
+
+
+void showMatrix(int arr[][4])
+{
+    int i, j;
+    printf("--------------------\n");
+    for (i = 0; i < 4; i++)
+    {
+        printf("|");
+        for (j = 0; j < 4; j++)
+        {
+            if (arr[i][j] != 0)
+                printf("%2d | ", arr[i][j]);
+            else
+                printf("   | ");
+        }
+        printf("\n");
+    }
+
+    printf("--------------------\n");
 }
 
 
@@ -84,13 +112,14 @@ int main()
     printf("\t\t\t\t");
     printf("Player Name: ");
     fgets(name,30,stdin);
-    system("cls");
-    
-
+    int moves=1000;
     gameRule();
-
+    system("cls");
     createMatrix(arr);
-
+    printf("\n\nPlayer Name : %s                                                       Moves : %d\n\n",name,moves);
+    showMatrix(arr);
+    system("pause");
+ 
     
 
 }
