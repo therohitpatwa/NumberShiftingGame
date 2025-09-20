@@ -189,7 +189,7 @@ int shiftDown(int arr[][4])
     return 1; // shift up success
 }
 
-int shiftRight(int arr[][4])
+int shiftLeft(int arr[][4])
 {
     int i, j;
     for (i = 0; i < 4; i++)
@@ -208,7 +208,7 @@ int shiftRight(int arr[][4])
     return 1; // shift up success
 }
 
-int shiftLeft(int arr[][4])
+int shiftRight(int arr[][4])
 {
     int i, j;
     for (i = 0; i < 4; i++)
