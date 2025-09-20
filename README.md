@@ -7,7 +7,7 @@
 ## 🧑‍💻 Technology Used
 **C programming**
 
-## Concept Used
+## 📓 Concept Used
 **Array, Pointer, Loop**
 
 ## 0️⃣Compile
@@ -19,6 +19,14 @@ gcc NumberShiftingGame.c -o NumberShiftingGame
 ```sh
 .\NumberShiftingGame
 ```
+
+## 🖼️How It Looks --
+(<img width="1097" height="573" alt="Screenshot 2025-09-20 230625" src="https://github.com/user-attachments/assets/75828720-bf60-4551-bcf0-630d79ab212a" />
+)
+(<img width="1602" height="827" alt="Screenshot 2025-09-20 230636" src="https://github.com/user-attachments/assets/171b1e02-da42-454e-99bc-915bc7a2c3aa" />
+)
+(<img width="1065" height="592" alt="image" src="https://github.com/user-attachments/assets/34e9e67d-810e-48d7-aa4d-ecb0d75de41e" />
+)
 
 
 
