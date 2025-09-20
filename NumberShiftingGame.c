@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<conio.h>
-#include<window.h>
+#include<windows.h>
 
 
 
